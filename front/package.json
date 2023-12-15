@@ -1,0 +1,20 @@
+{
+  "name": "front-don",
+  "private": true,
+  "version": "0.0.3",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "postcss": "^8.4.29",
+    "tailwindcss": "^3.3.3"
+  },
+  "dependencies": {
+    "@paypal/paypal-js": "^7.1.1",
+    "autoprefixer": "^10.4.16",
+    "vite": "^4.4.9"
+  }
+}

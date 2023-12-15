@@ -1,0 +1,63 @@
+<template id="moneyModal">
+
+  <dialog id="modal_money" class="dialog">
+    <span _="on load call app.helpers.loadMoneyModal()"></span>
+    <div class="flex justify-end">
+      <button _="on click call #modal_money.close()" class="cross-btn">X</button>
+    </div>
+    <div class="relative h-full">
+      <div class="absolute inset-0 overflow-y-auto p-2">
+        <header class="max-w-lg mx-auto">
+          <h2 class="text-center " data-trans="money_modal_title">sdcs</h2>
+          <div class="text-center italic text-sm" data-trans="money_modal_desc">sdfcs</div>
+        </header>
+        <form id="money_donation_form"
+          class="flex flex-col gap-3 sm:grid sm:grid-cols-2 p-3 max-w-lg mx-auto overflow-y-auto"
+          _="on submit halt the event">
+
+          <div class="col-span-2 grid grid-cols-2 gap-2 items-center justify-center" id="money_don_amount">
+            <label class="col-span-2" data-trans="donation_amount" required></label>
+            <fieldset>
+              <input type="radio" id="amount_10" name="amount" value="10" class="hidden">
+              <label for="amount_10" class="grade">10 €</label>
+            </fieldset>
+            <fieldset>
+              <input type="radio" id="amount_20" name="amount" value="20" class="hidden" checked>
+              <label for="amount_20" class="grade">20 €</label>
+            </fieldset>
+            <fieldset>
+              <input type="radio" id="amount_50" name="amount" value="50" class="hidden">
+              <label for="amount_50" class="grade">50 €</label>
+            </fieldset>
+            <fieldset>
+              <input type="radio" id="amount_100" name="amount" value="100" class="hidden">
+              <label for="amount_100" class="grade">100 €</label>
+            </fieldset>
+            <fieldset>
+              <input type="radio" id="amount_200" name="amount" value="200" class="hidden">
+              <label for="amount_200" class="grade">200 €</label>
+            </fieldset>
+            <fieldset>
+              <input type="radio" id="amount_500" name="amount" value="500" class="hidden">
+              <label for="amount_500" class="grade">500 €</label>
+            </fieldset>
+            <fieldset class="col-span-2">
+              <label for="money_custom_amount" data-trans="custom_amount"></label>
+              <input type="number" id="money_custom_amount" name="custom_amount" _="
+                on change 
+                js
+                document.querySelectorAll(`input[name='amount']`)?.forEach(radio => radio.checked = false)
+                end
+                end
+                ">
+            </fieldset>
+          </div>
+          <div id="paypal-buttons" class="flex col-span-2 mt-4">
+
+          </div>
+        </form>
+      </div>
+    </div>
+  </dialog>
+
+</template>

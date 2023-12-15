@@ -1,0 +1,17 @@
+<template id="accordion">
+  <section class="rounded border-2 border-sl-primary flex flex-col w-full ">
+    <header _="on click toggle the *display of the next <div/> then toggle .rotate-180 on first <arrow/> in me end"
+      class="grid grid-cols-[auto_1fr_auto] gap-2 cursor-pointer py-1 px-2 justify-between bg-sl-primary">
+      <arrow class="pb-2">
+
+        <svg xmlns="http://www.w3.org/2000/svg" height="16" width="10" viewBox="0 0 320 512" class="fill-white">
+          <!--!Font Awesome Pro 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc.-->
+          <path d="M0 336L160 480 320 336V288H0v48z" />
+        </svg>
+      </arrow>
+      <h2 class="uppercase text-white" data-type="title"></h2>
+    </header>
+
+    <div class="flex flex-col gap-[1px] bg-white text-sm p-3" data-type="content" style="display: none;"></div>
+  </section>
+</template>

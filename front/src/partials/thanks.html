@@ -1,0 +1,43 @@
+<div class="grid grid-rows-[auto_1fr] gap-3 bg-sl-bg h-[100dvh]">
+  <header class="bg-sl-white text-white p-2 flex items-center gap-2 justify-between">
+    <a href="https://mo5.com">
+
+      <img src="/public/logo.webp" alt="logo MO5">
+    </a>
+    <div _="
+      on load call app.helpers.getLang() 
+      then set $lang to result 
+      toggle @disabled on #{$lang}
+      end
+      ">
+      <button class="bg-sl-primary text-white rounded-sm px-3 py-2 disabled:opacity-50" id="fr"
+        _="on click call app.helpers.saveLang(@id) then toggle @disabled on me toggle @disabled on #en end">FR</button>
+      <button class="bg-sl-primary text-white rounded-sm px-3 py-2 disabled:opacity-50" id="en"
+        _="on click call app.helpers.saveLang(@id) then toggle @disabled on me toggle @disabled on #fr end">ENG</button>
+    </div>
+  </header>
+
+  <main class="flex flex-col gap-4 p-10 mb-3 relative h-full">
+    <div class="absolute inset-0 overflow-y-auto p-6">
+      <div class="flex flex-col text-xl gap-3 justify-center items-center text-sl-primary">
+
+        <h1 class="text-3xl uppercase text-black" data-trans="thanks_title"></h1>
+
+        <div class=" text-black text-center " data-trans="contact_soon"></div>
+        <a rel="noopener noreferer" target="_blank" id="file link" class="btn"
+          _="on load call app.helpers.getDownloadLink() then set @href to result" data-trans="dl_link_tax"></a>
+        <a href="https://mo5.com" data-trans="back_to_mo5"></a>
+        <a href="/" data-trans="back_to_donation"></a>
+
+      </div>
+    </div>
+  </main>
+
+</div>
+
+<span _="
+  -- inject templates in the DOM, translate the page to the end, after the injection
+  on load 
+  call app.helpers.translate()
+  " class="fixed">
+</span>

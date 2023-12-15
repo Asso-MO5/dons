@@ -1,0 +1,63 @@
+<template id="gearModal">
+
+  <dialog id="modal_gear" class="dialog grid grid-rows-[auto_1fr] gap-3">
+    <div class="flex justify-end item-center">
+      <button _="on click call #modal_gear.close()" class="cross-btn">X</button>
+    </div>
+
+    <div class="relative h-full">
+      <div class="absolute inset-0 overflow-y-auto p-2">
+        <header class="max-w-lg mx-auto">
+          <h2 class="text-center " data-trans="gear_modal_title">sdcs</h2>
+          <div class="text-center italic text-sm" data-trans="gear_modal_desc">sdfcs</div>
+        </header>
+        <form class="flex flex-col gap-3 sm:grid sm:grid-cols-2 p-3 max-w-lg mx-auto overflow-y-auto "
+          _="on submit halt the event then call app.helpers.submitGear(me)">
+          <fieldset>
+            <label for="gear_name" required data-trans="name">
+            </label>
+            <input type="text" required id="gear_name" name="name">
+          </fieldset>
+          <fieldset>
+            <label required for="gear_lastname" data-trans="lastname">
+            </label>
+            <input type="text" required id="gear_lastname" name="lastname">
+          </fieldset>
+          <fieldset>
+            <label required for="gear_email" data-trans="email">
+            </label>
+            <input type="email" required id="gear_email" name="email">
+          </fieldset>
+          <fieldset>
+            <label for="geat_tel" data-trans="phone">
+
+            </label>
+            <input type="tel" id="gear_tel" name="tel">
+          </fieldset>
+          <fieldset class="col-span-2">
+            <label for="gear_address" data-trans="address" required>
+            </label>
+            <input type="text" id="gear_address" name="address" required>
+          </fieldset>
+          <fieldset>
+            <label for="gear_postal_code" data-trans="postal_code" required>
+
+            </label>
+            <input type="text" id="gear_postal_code" name="postal_code" required>
+          </fieldset>
+          <fieldset>
+            <label for="gear_city" data-trans="city" required>
+
+            </label>
+            <input type="text" id="gear_city" name="city" required>
+          </fieldset>
+
+          <textarea name="message" id="gear_message" cols="30" rows="10" class="col-span-2 p-2" placeholder="message"
+            required></textarea>
+          <button class="btn col-span-2" data-trans="send"></button>
+        </form>
+      </div>
+    </div>
+  </dialog>
+
+</template>
