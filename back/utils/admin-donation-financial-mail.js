@@ -16,9 +16,11 @@ function adminDonationFinancialMail({ user, donation }) {
     ----------------------------------
     Id du don: ${donation.id}
     Montant: ${donation.amount}
-    Monnaie: ${donation.currency_code} ${donation.create_time}
-    Date du Don: ${new Date(donation.create_time).toLocaleDateString()}
-    Transaction ID: ${donation.transactionId}`,
+    Monnaie: ${donation.currency_code}
+    Date du Don: ${new Date(donation.transaction_date).toLocaleDateString()} - ${
+      donation.transaction_date
+    }
+    Transaction ID: ${donation.transaction_id}`,
 
     html: `<body style="background-color: #F2F2F2; color: #000; font-family: Arial, sans-serif; margin: 0; padding: 0;">
     <table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color: #F2F2F2;">
@@ -28,7 +30,7 @@ function adminDonationFinancialMail({ user, donation }) {
                     <!-- Header -->
                     <tr>
                         <td style="background-color: #4088cf; color: #FFF; padding: 20px; text-align: center;">
-                            <h1>DON FINANCIER</h1>
+                            <h1>MO5 | DON FINANCIER</h1>
                         </td>
                     </tr>
   
@@ -55,9 +57,9 @@ function adminDonationFinancialMail({ user, donation }) {
       donation.currency_code
     }</p>
                             <p><strong>Source:</strong> ${donation.source}</p>
-                            <p><strong>Transaction ID:</strong> ${donation.transactionId}</p>
+                            <p><strong>Transaction ID:</strong> ${donation.transaction_id}</p>
                             <p><strong>Date:</strong> ${new Date(
-                              donation.create_time
+                              donation.transaction_date
                             ).toLocaleDateString()}</p>
                             <!-- Add more donation fields as needed -->
                         </td>

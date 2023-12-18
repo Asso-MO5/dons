@@ -25,7 +25,7 @@ function donationFinancialMail({ user, donation }) {
                     <!-- Header -->
                     <tr>
                         <td style="background-color: #4088cf; color: #FFF; padding: 20px; text-align: center;">
-                            <h1>Détails de votre Don</h1>
+                            <h1>MO5 | Détails de votre Don</h1>
                         </td>
                     </tr>
                     <!-- Donation Information Section -->
@@ -34,7 +34,7 @@ function donationFinancialMail({ user, donation }) {
                             <h2 style="color: #d433a9;">Détails du Don</h2>
                             <p><strong>Id du don:</strong> ${donation.id}</p>
                             <p><strong>Montant:</strong> ${donation.amount} ${donation.currency_code}</p>
-                            <p><a href="${donation.link}"><strong>Reçu fiscal</strong></a></p>
+                            <p><strong>Votre reçu fiscal se trouve en pièce jointe</strong></p>
                             <!-- Add more donation fields as needed -->
                         </td>
                     </tr>

@@ -6,6 +6,7 @@ const { saveFinancialDonation } = require("../services/financial_donations.servi
 const { saveDonation } = require("../services/donation.service")
 const { donationFinancialMail } = require("../utils/donation-financial-mail")
 const { adminDonationFinancialMail } = require("../utils/admin-donation-financial-mail")
+const path = require("path")
 
 module.exports = async (req, h) => {
   if (!req.payload) return h.response("no payload").code(400)
@@ -43,7 +44,6 @@ module.exports = async (req, h) => {
     source: FINANCIAL_DONATION_SOURCE.paypal,
     transaction_date: create_time,
     transaction_id: transactionId,
-    currency_code: currency_code,
     become_member: donation?.become_member || false,
   }
 
@@ -63,11 +63,19 @@ module.exports = async (req, h) => {
     city,
   })
 
+  const fileNameForMail = `mo5_recu_fiscal_${invoice_id}.pdf`
+
   try {
-    await transporter.sendMail({
+    transporter.sendMail({
       from: FROM,
       to: process.env.MAIL_DEST,
-      bbc: `${process.env.MAILS_COPY}}`,
+      cc: process.env.MAILS_COPY,
+      attachments: [
+        {
+          filename: fileNameForMail,
+          path: path.join(__dirname + "/../files", fileName),
+        },
+      ],
       subject: `DONS - ${name} ${lastname}`,
       ...adminDonationFinancialMail({
         donation: { ...donationInfo, id: fileId },
@@ -80,11 +88,16 @@ module.exports = async (req, h) => {
   }
 
   try {
-    await transporter.sendMail({
+    transporter.sendMail({
       from: FROM,
       to: email,
-      cc: `${process.env.MAIL_DEST}}`,
-      subject: `VOTRE DONS POUR MO5.COM`,
+      attachments: [
+        {
+          filename: fileNameForMail,
+          path: path.join(__dirname + "/../files", fileName),
+        },
+      ],
+      subject: `VOTRE DONS POUR MO5`,
       ...donationFinancialMail({
         donation: { ...donationInfo, id: fileId, link: `${BASE_URL}/cerfa/${fileId}/${email}` },
         user: userInfo,

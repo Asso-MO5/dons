@@ -43,7 +43,19 @@
             <label for="gear_postal_code" data-trans="postal_code" required>
 
             </label>
-            <input type="text" id="gear_postal_code" name="postal_code" required>
+            <input type="text" id="gear_postal_code" name="postal_code" required _="
+                on change
+                if me.value 
+              
+                toggle .opacity-50 on #gear_city
+                set #gear_city.value to '...'
+                call app.helpers.getBano(me.value) 
+                then 
+                if result.length > 0 
+                then log result[0] set #gear_city.value to result[0].city
+                toggle .opacity-50 on #gear_city
+                end
+            ">
           </fieldset>
           <fieldset>
             <label for="gear_city" data-trans="city" required>

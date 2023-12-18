@@ -8,6 +8,7 @@ import { submitGear } from "../scripts/submit-gear"
 import { injectFaq } from "../scripts/injectFaq"
 import { submitMoney } from "../scripts/submit-money"
 import { loadMoneyModal } from "../scripts/load-money-modal"
+import { getBano } from "../scripts/getBano"
 
 export default () =>
   createPage(
@@ -19,5 +20,6 @@ export default () =>
     submitGear,
     injectFaq,
     submitMoney,
-    loadMoneyModal
+    loadMoneyModal,
+    getBano
   )

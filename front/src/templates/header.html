@@ -1,0 +1,19 @@
+<template id="header">
+  <header class="bg-sl-white text-white p-2 flex items-center gap-2 justify-between">
+    <a href="https://mo5.com">
+
+      <img src="/public/logo.webp" alt="logo MO5">
+    </a>
+    <div _="
+      on load call app.helpers.getLang() 
+      then set $lang to result 
+      toggle @disabled on #{$lang}
+      end
+      ">
+      <button class="bg-sl-primary text-white rounded-sm px-3 py-2 disabled:opacity-50" id="fr"
+        _="on click call app.helpers.saveLang(@id) then toggle @disabled on me toggle @disabled on #en end">FR</button>
+      <button class="bg-sl-primary text-white rounded-sm px-3 py-2 disabled:opacity-50" id="en"
+        _="on click call app.helpers.saveLang(@id) then toggle @disabled on me toggle @disabled on #fr end">ENG</button>
+    </div>
+  </header>
+</template>

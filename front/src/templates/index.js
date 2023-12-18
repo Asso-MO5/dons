@@ -5,6 +5,7 @@ import moneyModal from "./money-modal.html?raw"
 import accordion from "./accordion.html?raw"
 import toastSuccess from "./toast-success.html?raw"
 import toastError from "./toast-error.html?raw"
+import header from "./header.html?raw"
 
 export const templates = {
   gearModal,
@@ -12,6 +13,7 @@ export const templates = {
   accordion,
   toastSuccess,
   toastError,
+  header,
   // icon
   trashcan,
   pen,

@@ -3,6 +3,8 @@ module.exports = [
   require("./gear-submit.route"),
   require("./money-submit.route"),
   require("./cerfa.route"),
+  require("./bano.route"),
+  require("./cer"),
 
   //FRONT
   require("./favicon.route"),

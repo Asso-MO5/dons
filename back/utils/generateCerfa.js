@@ -32,14 +32,32 @@ async function generateCerfa({
   //=== images =======
   const cerfa1 = await loadImage("back/data/cerfa_11580_1.png")
   const cerfa2 = await loadImage("back/data/cerfa_11580_2.png")
-  const sign = await loadImage("back/data/sign.png")
 
   // ==== PAGE 1 ====
   ctx.drawImage(cerfa1, 0, 0)
 
   // === Case donateur ===
-  ctx.font = "8px Sans"
-  ctx.fillText(invoice_id, 657, 77)
+  ctx.font = "15px Sans"
+  ctx.fillText(invoice_id, 650, 77)
+
+  // === INFO ASSO ===
+  ctx.font = "18px Sans"
+  ctx.fillText("Association MO5.com", 215, 163)
+
+  ctx.font = "15px Sans"
+  ctx.fillText("8", 75, 213)
+  ctx.fillText("Boulevard Serrurier", 150, 213)
+  ctx.fillText("75019", 135, 234)
+  ctx.fillText("Paris", 270, 234)
+
+  ctx.fillText(
+    "Association MO5.com pour la sauvegarde de l'informatique et des jeux vidéo",
+    60,
+    276
+  )
+  ctx.font = "18px Sans"
+  // orga d'interet general
+  ctx.fillText("X", 55, 537)
 
   const bufferPage1 = Buffer.from(
     canvas.toDataURL().replace("data:image/png;base64,", ""),
@@ -49,7 +67,6 @@ async function generateCerfa({
   // ==== PAGE 2 ====
 
   ctx.drawImage(cerfa2, 0, 0)
-  ctx.drawImage(sign, 555, 1015)
 
   // === ID ====
   ctx.font = "14px Sans"
@@ -62,7 +79,7 @@ async function generateCerfa({
   // === Amount ===
   ctx.font = "16px Sans"
   ctx.fillText(Number(amount), 320, 283)
-  ctx.fillText(mountToLetter(Number(amount)), 215, 320)
+  ctx.fillText(`${mountToLetter(Number(amount))} euro${Number(amount) > 1 ? "s" : ""}`, 215, 320)
 
   // === donation date ===
   ctx.font = "13px Sans"

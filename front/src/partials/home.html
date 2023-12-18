@@ -1,21 +1,4 @@
-<div class="grid grid-rows-[auto_1fr] gap-3 bg-sl-bg h-[100dvh]">
-  <header class="bg-sl-white text-white p-2 flex items-center gap-2 justify-between">
-    <a href="https://mo5.com">
-
-      <img src="/public/logo.webp" alt="logo MO5">
-    </a>
-    <div _="
-      on load call app.helpers.getLang() 
-      then set $lang to result 
-      toggle @disabled on #{$lang}
-      end
-      ">
-      <button class="bg-sl-primary text-white rounded-sm px-3 py-2 disabled:opacity-50" id="fr"
-        _="on click call app.helpers.saveLang(@id) then toggle @disabled on me toggle @disabled on #en end">FR</button>
-      <button class="bg-sl-primary text-white rounded-sm px-3 py-2 disabled:opacity-50" id="en"
-        _="on click call app.helpers.saveLang(@id) then toggle @disabled on me toggle @disabled on #fr end">ENG</button>
-    </div>
-  </header>
+<div class="grid grid-rows-[auto_1fr] gap-3 bg-sl-bg h-[100dvh]" id="page">
 
   <main class="flex flex-col gap-4 p-10 mb-3 relative h-full">
     <div class="absolute inset-0 overflow-y-auto p-6">
@@ -64,9 +47,10 @@
   -- inject templates in the DOM, translate the page to the end, after the injection
   on load call app.helpers.injectTemplate('gearModal') 
   then put result after me 
-  call app.helpers.injectTemplate('moneyModal') then put result after #modal_gear
 
+  call app.helpers.injectTemplate('moneyModal') then put result after #modal_gear
   call app.helpers.injectFaq() then put result into #faq
+  call app.helpers.injectTemplate('header') then put result at the start of #page 
 
   call app.helpers.translate()
   " class="fixed">

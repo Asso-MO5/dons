@@ -1,5 +1,4 @@
 function gearSubmitMail({ user, donation }) {
-  console.log("gearSubmitMail", user, donation)
   return {
     text: `DON MATERIEL
 
@@ -28,7 +27,7 @@ function gearSubmitMail({ user, donation }) {
                     <!-- Header -->
                     <tr>
                         <td style="background-color: #4088cf; color: #FFF; padding: 20px; text-align: center;">
-                            <h1>DON MATERIEL</h1>
+                            <h1>MO5 | DON MATERIEL</h1>
                         </td>
                     </tr>
   
