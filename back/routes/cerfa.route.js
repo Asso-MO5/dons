@@ -1,5 +1,5 @@
 module.exports = {
   method: "GET",
-  path: "/cerfa/{id}/{email}",
+  path: "/api/cerfa/{id}/{email}",
   handler: require("../ctrl/cerfa.ctrl"),
 }

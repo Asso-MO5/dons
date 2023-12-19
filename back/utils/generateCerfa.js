@@ -112,6 +112,11 @@ async function generateCerfa({
     "base64"
   )
 
+  const dir = path.join(__dirname, "/../files")
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir)
+  }
+
   const pages = [bufferPage1, bufferPage2]
   const pdfPath = path.join(__dirname + "/../files", fileName)
 

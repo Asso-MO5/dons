@@ -1,5 +1,5 @@
 module.exports = {
   method: "GET",
-  path: "/bano/{search}",
+  path: "/api/bano/{search}",
   handler: require("../ctrl/bano.ctrl"),
 }
