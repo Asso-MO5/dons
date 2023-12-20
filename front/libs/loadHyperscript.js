@@ -1,4 +1,3 @@
-import "./_hyperscript.min.js"
 /**
  *
  * @description Charge le script Hyperscript si ce n'est pas déjà fait. et garanti que _hyperscript est disponible avant d'exécuter la fonction callback.
