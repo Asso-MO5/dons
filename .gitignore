@@ -90,6 +90,7 @@ out
 
 #data
 back/files/*
+back/uploads/*
 
 
 # Gatsby files

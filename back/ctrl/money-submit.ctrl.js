@@ -117,7 +117,7 @@ module.exports = async (req, h) => {
       donation_type: DONATION_TYPE.financial,
       fileId,
       email,
-      link: `${BASE_URL}/cerfa/${fileId}/${email}`,
+      link: `/api/cerfa/${fileId}/${email}`,
     })
     .code(200)
 }

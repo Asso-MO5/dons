@@ -1,4 +1,3 @@
-import { BASE_URL } from "../utils/constants"
 import { toast } from "./toast"
 
 /**
@@ -12,7 +11,7 @@ export async function submitGear(form) {
   const modal = document.querySelector("#modal_gear")
 
   try {
-    const res = await fetch(BASE_URL + "/gear_submit", {
+    const res = await fetch("/api/gear_submit", {
       method: "POST",
       body: data,
     })

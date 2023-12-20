@@ -11,12 +11,8 @@ const FINANCIAL_DONATION_SOURCE = {
   bank_transfer: "BANK_TRANSFER",
 }
 
-const BASE_URL =
-  process.env.NODE_ENV === "production" ? process.env.URL_APP : "http://localhost:3000"
-
 module.exports = {
   FROM,
   DONATION_TYPE,
-  BASE_URL,
   FINANCIAL_DONATION_SOURCE,
 }

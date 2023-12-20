@@ -1,4 +1,7 @@
 const Joi = require("joi")
+const path = require("path")
+const fs = require("fs")
+const { v4: uuidv4 } = require("uuid")
 const { transporter } = require("../services/mail.service")
 const { FROM, DONATION_TYPE } = require("../utils/constants")
 const { saveUser, getUserByEmail } = require("../services/user.service")
@@ -6,6 +9,28 @@ const { saveDonation } = require("../services/donation.service")
 const { gearSubmitMail } = require("../utils/gear-submit-mail")
 
 module.exports = async (req, h) => {
+  const data = req.payload
+  if (data?.files && Array.isArray(data.files) && data) {
+    const dir = path.join(__dirname, "../uploads")
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir)
+    }
+
+    for (const file of data.files) {
+      const extension = path.extname(file.hapi.filename)
+      const uuidName = uuidv4() + extension
+      const destination = path.join(dir, uuidName)
+      const fileStream = fs.createWriteStream(destination)
+
+      await new Promise((resolve, reject) => {
+        file.pipe(fileStream)
+        file.on("end", resolve)
+        file.on("error", reject)
+      })
+    }
+  }
+
+  delete req.payload.files
   const gearFormSchema = Joi.object({
     name: Joi.string().required().messages({
       "string.empty": `"name" cannot be empty`,
@@ -28,7 +53,6 @@ module.exports = async (req, h) => {
     city: Joi.string().allow("", null),
     message: Joi.string().allow("", null),
   })
-
   let form
   try {
     form = await gearFormSchema.validateAsync(req.payload)
