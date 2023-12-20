@@ -151,4 +151,8 @@ export const translation = {
     fr: "Télécharger votre reçu fiscal",
     en: "Download your tax receipt",
   },
+  files: {
+    fr: "Fichiers",
+    en: "Files",
+  },
 }

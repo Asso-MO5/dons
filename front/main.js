@@ -1,6 +1,7 @@
 import { init } from "./libs/init"
 import "./public/globals.css"
 import pkg from "./package.json"
+import "../front/libs/_hyperscript.min.js"
 
 // Register service worker -----------------------------------------------------
 if ("serviceWorker" in navigator) {

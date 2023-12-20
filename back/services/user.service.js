@@ -6,19 +6,16 @@ const tableName = "users"
 async function saveUser(user) {
   const id = uuidv4()
   try {
-    await knex(tableName).insert(
-      {
-        id,
-        email: user.email,
-        name: user.name,
-        lastname: user.lastname,
-        address: user.address,
-        postal_code: user.postal_code,
-        city: user.city,
-        phone: user.phone,
-      },
-      "id"
-    )
+    await knex(tableName).insert({
+      id,
+      email: user.email,
+      name: user.name,
+      lastname: user.lastname,
+      address: user.address,
+      postal_code: user.postal_code,
+      city: user.city,
+      phone: user.phone,
+    })
     return id
   } catch (err) {
     console.error("Erreur lors de l’enregistrement de l’utilisateur:", err)
