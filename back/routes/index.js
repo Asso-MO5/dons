@@ -11,11 +11,11 @@ module.exports = [
   require("./public.route"),
   require("./assets.route"),
   require("./manifest.route"),
-
   {
     method: "GET",
     path: "/_hyperscript.min.js",
-    handler: (_req, h) => h.file("front/dist/_hyperscript.min.js"),
+    handler: (_req, h) => h.file("dist/_hyperscript.min.js"),
   },
+
   require("./home.route"),
 ]

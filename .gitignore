@@ -101,6 +101,7 @@ back/uploads/*
 
 ## dist 
 dist/
+front/dist/
 
 # Gatsby files
 .cache/

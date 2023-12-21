@@ -3,7 +3,7 @@ module.exports = {
   path: "/fonts/{param*}",
   handler: {
     directory: {
-      path: "back/public/fonts",
+      path: "dist/fonts",
       index: false,
     },
   },

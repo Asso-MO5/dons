@@ -1,3 +1,3 @@
 module.exports = (_req, h) => {
-  return h.file("front/dist/manifest.json")
+  return h.file("dist/manifest.json")
 }

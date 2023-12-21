@@ -1,6 +1,7 @@
 import { init } from "./libs/init"
 import "./public/globals.css"
 import pkg from "./package.json"
+
 // Register service worker -----------------------------------------------------
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {

@@ -3,7 +3,7 @@ module.exports = {
   path: "/assets/{param*}",
   handler: {
     directory: {
-      path: "front/dist/assets",
+      path: "dist/assets",
       index: false,
     },
   },
