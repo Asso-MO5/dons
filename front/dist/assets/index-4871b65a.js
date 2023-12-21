@@ -193,7 +193,7 @@ var __defProp=Object.defineProperty;var __name=(target,value)=>__defProp(target,
             </fieldset>\r
             <fieldset class="col-span-2">\r
               <label for="money_custom_amount" data-trans="custom_amount"></label>\r
-              <input type="number" id="money_custom_amount" name="custom_amount" _="\r
+              <input type="number" placeholder="15€" id="money_custom_amount" name="custom_amount" _="\r
                 on change \r
                 js\r
                 document.querySelectorAll(\`input[name='amount']\`)?.forEach(radio => radio.checked = false)\r
@@ -282,7 +282,7 @@ var __defProp=Object.defineProperty;var __name=(target,value)=>__defProp(target,
         <h1 class="text-3xl uppercase text-black" data-trans="thanks_title"></h1>\r
 \r
         <div class=" text-black text-center " data-trans="contact_soon"></div>\r
-        <a rel="noopener noreferer" target="_blank" id="file link" class="btn"\r
+        <a rel="noopener noreferer" target="_blank" id="file link" class="btn text-2xl p-3"\r
           _="on load call app.helpers.getDownloadLink() then set @href to result" data-trans="dl_link_tax"></a>\r
         <a href="https://mo5.com" data-trans="back_to_mo5"></a>\r
         <a href="/" data-trans="back_to_donation"></a>\r
