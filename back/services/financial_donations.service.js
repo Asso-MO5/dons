@@ -17,11 +17,11 @@ async function getLastFinancialDonation() {
   }
 }
 
-async function getFinancialDonationsByUser(userId) {
+async function getFinancialDonationsById(id) {
   try {
     const donations = await knex(tableName)
-      .where({ user_id: userId, donation_type: "financial" }) // Assurez-vous de filtrer par le bon type de don
-      .orderBy("created_at", "desc")
+      .where({ id }) // Assurez-vous de filtrer par le bon type de don
+      .first()
 
     return donations
   } catch (err) {
@@ -72,5 +72,5 @@ async function saveFinancialDonation(donation) {
 module.exports = {
   saveFinancialDonation,
   getLastFinancialDonation,
-  getFinancialDonationsByUser,
+  getFinancialDonationsById,
 }

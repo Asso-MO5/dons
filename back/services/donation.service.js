@@ -21,6 +21,21 @@ async function saveDonation(donation) {
   }
 }
 
+async function getdonationByUserIdAndId(user_id, id) {
+  try {
+    const donations = await knex(tableName).where({ id, user_id }).first()
+
+    return donations
+  } catch (err) {
+    console.error(
+      "Erreur lors de la récupération des donations financières pour l'utilisateur:",
+      err
+    )
+    throw err
+  }
+}
+
 module.exports = {
   saveDonation,
+  getdonationByUserIdAndId,
 }
