@@ -104,7 +104,7 @@ export const translation = {
     en: "Is my donation eligible for a tax deduction?",
   },
   faq_tax_deduction_content: {
-    fr: "Oui ! L'association a récemment été déclarée d'intérêt général. La réduction d’impôt est de 66 % du montant des sommes versées. La réduction s'applique dans la limite de 20 % du revenu imposable. En ce qui concerne les dons en nature, nous ne sommes malheureusement pas en mesure d'en estime la valeur, ils ne peuvent donc pas faire l'objet d'une réduction d'impôt.",
+    fr: "Oui ! L'association a récemment été déclarée d'intérêt général. La réduction d’impôt est de 66 % du montant des sommes versées. La réduction s'applique dans la limite de 20 % du revenu imposable. En ce qui concerne les dons en nature, nous ne sommes malheureusement pas en mesure d'en estimer la valeur, ils ne peuvent donc pas faire l'objet d'une réduction d'impôt.",
     en: "Yes ! The association has recently been declared of general interest. The tax reduction is 66% of the amount paid. The reduction applies within the limit of 20% of taxable income. As far as donations in kind are concerned, we are unfortunately not able to estimate their value, so they cannot be the subject of a tax reduction.",
   },
   faq_donation_receipt_title: {
@@ -120,7 +120,7 @@ export const translation = {
     en: "Is the transaction secure?",
   },
   faq_transaction_security_content: {
-    fr: "Absolument. La sécurité et la confidentialité de vos informations est notre priorité. Nous utilisons un certificat SSL pour protéger vos informations, et les dons via la plateforme PayPal sont sécurisés. Nous ne vendrons, échangerons, ou partagerons vos informations personnelles avec personne, et nous n'enverrons aucun e-mail aux donateurs au nom d'autres organisations.",
+    fr: "Absolument. La sécurité et la confidentialité de vos informations sont notre priorité. Nous utilisons un certificat SSL pour protéger vos informations, et les dons via la plateforme PayPal sont sécurisés. Nous ne vendrons, échangerons, ou partagerons vos informations personnelles avec personne, et nous n'enverrons aucun e-mail aux donateurs au nom d'autres organisations.",
     en: "Absolutely. The security and confidentiality of your information is our priority. We use an SSL certificate to protect your information, and donations via the PayPal platform are secure. We will not sell, trade, or share your personal information with anyone, and we will not send any emails to donors on behalf of other organizations.",
   },
   gear_submit_success: {
