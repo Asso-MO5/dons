@@ -1,0 +1,96 @@
+<div class="grid grid-rows-[auto_1fr] gap-3 bg-sl-bg h-[100dvh]" id="page">
+
+  <main class="flex flex-col gap-4 p-10 mb-3 relative h-full">
+    <div class="absolute inset-0 overflow-y-auto p-6">
+
+      <section class="flex justify-center flex-col items-center">
+
+        <article
+          class="border-2 border-sl-primary p-3 rounded flex flex-col items-stretch justify-between h-full max-w-xl">
+          <form class="flex flex-col gap-3 sm:grid sm:grid-cols-2 p-3 max-w-lg mx-auto overflow-y-auto "
+            _="on submit halt the event then call app.helpers.submitAdminGen(me)">
+            <fieldset>
+              <label for="gen_name" data-trans="name">
+              </label>
+              <input type="text" id="gen_name" name="name">
+            </fieldset>
+            <fieldset>
+              <label for="gen_lastname" data-trans="lastname">
+              </label>
+              <input type="text" required id="gen_lastname" name="lastname">
+            </fieldset>
+            <fieldset>
+              <label required for="gen_email" data-trans="email">
+              </label>
+              <input type="email" required id="gen_email" name="email">
+            </fieldset>
+            <fieldset>
+              <label for="geat_tel" data-trans="phone">
+
+              </label>
+              <input type="tel" id="gen_tel" name="tel">
+            </fieldset>
+            <fieldset class="col-span-2">
+              <label for="gen_address" data-trans="address">
+              </label>
+              <input type="text" id="gen_address" name="address">
+            </fieldset>
+            <fieldset>
+              <label for="gen_postal_code" data-trans="postal_code">
+
+              </label>
+              <input type="text" id="gen_postal_code" name="postal_code" _="
+                on change
+                if me.value 
+              
+                toggle .opacity-50 on #gen_city
+                set #gen_city.value to '...'
+                call app.helpers.getBano(me.value) 
+                then 
+                if result.length > 0 
+                then log result[0] set #gen_city.value to result[0].city
+                toggle .opacity-50 on #gen_city
+                end
+            ">
+            </fieldset>
+            <fieldset>
+              <label for="gen_city" data-trans="city">
+
+              </label>
+              <input type="text" id="gen_city" name="city">
+            </fieldset>
+            <fieldset class="col-span-2">
+              <label for="gen_amount" data-trans="amount" required>
+              </label>
+              <input type="text" id="gen_amount" name="amount" required>
+            </fieldset>
+            <fieldset class="col-span-2">
+              <label for="gen_token" data-trans="token" required>
+              </label>
+              <input type="password" id="gen_token" name="token" required>
+            </fieldset>
+            <button class="btn col-span-2" data-trans="send"></button>
+          </form>
+
+        </article>
+
+
+      </section>
+
+    </div>
+  </main>
+
+</div>
+
+<span _="
+  -- inject templates in the DOM, translate the page to the end, after the injection
+ -- on load call app.helpers.injectTemplate('gearModal') 
+  -- then put result after me 
+
+  -- call app.helpers.injectTemplate('moneyModal') then put result after #modal_gear
+  -- call app.helpers.injectFaq() then put result into #faq
+  on load call app.helpers.injectTemplate('header') then put result at the start of #page 
+
+  call app.helpers.translate()
+  " class="fixed">
+</span>

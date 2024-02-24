@@ -2,7 +2,7 @@ module.exports = [
   //BACK
   require("./gear-submit.route"),
   require("./money-submit.route"),
-  require("./cerfa.route"),
+  ...require("./cerfa.route"),
   require("./bano.route"),
 
   //FRONT
@@ -18,4 +18,5 @@ module.exports = [
   },
 
   require("./home.route"),
+  ...require("./admin.route"),
 ]

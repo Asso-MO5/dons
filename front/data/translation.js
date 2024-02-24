@@ -155,4 +155,12 @@ export const translation = {
     fr: "Fichiers",
     en: "Files",
   },
+  amount: {
+    fr: "Montant",
+    en: "Amount",
+  },
+  token: {
+    fr: "Token",
+    en: "Token",
+  },
 }

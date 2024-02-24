@@ -1,5 +1,3 @@
-const { knex } = require("../services/db.service")
-
 const path = require("path")
 const { getUserByEmail } = require("../services/user.service")
 const { getFinancialDonationsById } = require("../services/financial_donations.service")
@@ -11,7 +9,6 @@ module.exports = async (req, h) => {
 
   const user = await getUserByEmail(email)
   const donation = await getFinancialDonationsById(id)
-  console.log("donation", user.id, donation.donation_id)
   const isGoodUser = await getdonationByUserIdAndId(user.id, donation.donation_id)
 
   if (isGoodUser === undefined) {
