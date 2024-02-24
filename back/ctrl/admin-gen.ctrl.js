@@ -11,7 +11,7 @@ module.exports = async (req, h) => {
   if (!token) return h.response("no token").code(400)
   if (token !== process.env.TOKEN_ADMIN) return h.response("wrong token").code(400)
 
-  const date = new Date()
+  const date = new Date(req.payload.date) || new Date()
 
   const existUser = await getUserByEmail(email)
 
@@ -19,12 +19,12 @@ module.exports = async (req, h) => {
 
   const user = existUser?.id ? existUser : req.payload
 
-  const invoice_id = `gen-${uuidv4()}`
+  const invoice_id = `${uuidv4()}-gen`
   const fileName = `${invoice_id}` + ".pdf"
 
   await generateCerfa({
     amount: parseFloat(amount) || 0,
-    invoice_id,
+    invoice_id: `g-${date.getMonth() + 1}-${date.getFullYear()}-${invoice_id.slice(0, 5)}`,
     date,
     fileName,
     name: user.name,
