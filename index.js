@@ -2,6 +2,7 @@ require("dotenv").config()
 const Hapi = require("@hapi/hapi")
 const Inert = require("@hapi/inert")
 const routes = require("./back/routes")
+const securityHeadersPlugin = require("./back/plugins/security-headers.plugin")
 
 const init = async () => {
   const corsDev = {
@@ -24,6 +25,7 @@ const init = async () => {
 
   // Plugins
   await server.register(Inert)
+  await server.register(securityHeadersPlugin)
 
   server.route(routes)
 
