@@ -19,6 +19,7 @@ module.exports = async (req, h) => {
   const membershipType = donation?.type === "RENEWAL" ? "RENEWAL" : "NEW"
 
   const date = new Date(create_time)
+  const transactionDate = date.toISOString().slice(0, 10) // YYYY-MM-DD pour la colonne DATE
 
   // find-or-create user
   const existUser = await getUserByEmail(email)
@@ -54,7 +55,7 @@ module.exports = async (req, h) => {
     currency_code,
     amount: Number(amount),
     source: FINANCIAL_DONATION_SOURCE.paypal,
-    transaction_date: create_time,
+    transaction_date: transactionDate,
     transaction_id: transactionId,
     payer_email: payload?.donation?.payer_email || null,
     become_member: false,

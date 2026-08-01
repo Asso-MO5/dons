@@ -17,6 +17,7 @@ module.exports = async (req, h) => {
   const { create_time, amount, transactionId, currency_code } = donation
 
   const date = new Date(create_time)
+  const transactionDate = date.toISOString().slice(0, 10) // YYYY-MM-DD pour la colonne DATE
 
   //TODO search user by email
 
@@ -42,7 +43,7 @@ module.exports = async (req, h) => {
     currency_code: currency_code,
     amount: Number(amount),
     source: FINANCIAL_DONATION_SOURCE.paypal,
-    transaction_date: create_time,
+    transaction_date: transactionDate,
     transaction_id: transactionId,
     become_member: donation?.become_member || false,
   }
