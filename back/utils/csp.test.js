@@ -44,6 +44,13 @@ test("CSP prod: script-src allows unsafe-eval and unsafe-inline for hyperscript 
   assert.ok(hasSource(csp, "script-src", "'unsafe-inline'"))
 })
 
+test("CSP prod: analytics.mo5.fr is allowed in script-src, connect-src, img-src", () => {
+  const csp = buildCsp({ env: "production" })
+  assert.ok(hasSource(csp, "script-src", "https://analytics.mo5.fr"))
+  assert.ok(hasSource(csp, "connect-src", "https://analytics.mo5.fr"))
+  assert.ok(hasSource(csp, "img-src", "https://analytics.mo5.fr"))
+})
+
 test("CSP dev: still allows PayPal domains and localhost", () => {
   const csp = buildCsp({ env: "development" })
   assert.ok(hasSource(csp, "script-src", "https://*.paypal.com"))

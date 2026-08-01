@@ -26,6 +26,7 @@ function buildCsp({ env = "production" } = {}) {
   const isDev = env !== "production"
 
   const paypalOrigins = ["https://*.paypal.com", "https://*.paypalobjects.com"]
+  const analyticsOrigins = ["https://analytics.mo5.fr"]
 
   const directives = {
     "default-src": ["'self'"],
@@ -34,6 +35,7 @@ function buildCsp({ env = "production" } = {}) {
       "'unsafe-inline'",
       "'unsafe-eval'",
       ...paypalOrigins,
+      ...analyticsOrigins,
       ...(isDev ? ["ws://localhost:*", "http://localhost:*"] : []),
     ],
     "style-src": ["'self'", "'unsafe-inline'"],
@@ -42,11 +44,13 @@ function buildCsp({ env = "production" } = {}) {
       "data:",
       "https://www.paypal.com",
       "https://www.paypalobjects.com",
+      ...analyticsOrigins,
     ],
     "font-src": ["'self'", "data:"],
     "connect-src": [
       "'self'",
       ...paypalOrigins,
+      ...analyticsOrigins,
       ...(isDev ? ["ws://localhost:*", "http://localhost:*"] : []),
     ],
     "frame-src": paypalOrigins,

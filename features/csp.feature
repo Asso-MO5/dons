@@ -20,6 +20,13 @@ Fonctionnalité: Servir une Content-Security-Policy
     Et la directive "connect-src" contient "https://www.paypal.com"
     Et la directive "img-src" contient "https://www.paypal.com"
 
+  Scénario: La CSP de production autorise le script d'analytics mo5.fr
+    Étant donné un serveur démarré avec NODE_ENV=production
+    Quand une requête GET est envoyée sur la page d'accueil
+    Alors la directive "script-src" contient "https://analytics.mo5.fr"
+    Et la directive "connect-src" contient "https://analytics.mo5.fr"
+    Et la directive "img-src" contient "https://analytics.mo5.fr"
+
   Scénario: La CSP de production n'autorise pas unsafe-inline côté script
     Étant donné un serveur démarré avec NODE_ENV=production
     Quand une requête GET est envoyée sur la page d'accueil
