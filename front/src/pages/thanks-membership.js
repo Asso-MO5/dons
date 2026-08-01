@@ -6,4 +6,10 @@ import { getDownloadLink } from "../scripts/getDownloadLink"
 import { translate } from "../scripts/translate"
 
 export default () =>
-  createPage(content, getLang, saveLang, translate, injectTemplate, getDownloadLink)
+  createPage(content, {
+    getLang,
+    saveLang,
+    translate,
+    injectTemplate,
+    getDownloadLink,
+  })

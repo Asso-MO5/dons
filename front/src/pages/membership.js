@@ -7,4 +7,11 @@ import { loadMembershipModal } from "../scripts/load-membership-modal"
 import { translate } from "../scripts/translate"
 
 export default () =>
-  createPage(content, getLang, saveLang, translate, injectTemplate, loadMembershipModal, getBano)
+  createPage(content, {
+    getLang,
+    saveLang,
+    translate,
+    injectTemplate,
+    loadMembershipModal,
+    getBano,
+  })
