@@ -163,4 +163,52 @@ export const translation = {
     fr: "Token",
     en: "Token",
   },
+  membership_title: {
+    fr: "Devenir membre",
+    en: "Become a member",
+  },
+  membership_desc: {
+    fr: "Rejoignez l'association MO5 pour 15 € par an et soutenez directement notre action. Vous recevrez un reçu fiscal et un accès à notre communauté Discord.",
+    en: "Join the MO5 association for €15 per year and directly support our work. You'll receive a tax receipt and access to our Discord community.",
+  },
+  btn_join: {
+    fr: "J'adhère",
+    en: "Join us",
+  },
+  membership_modal_title: {
+    fr: "Adhérer à l'association MO5",
+    en: "Join the MO5 association",
+  },
+  membership_modal_desc: {
+    fr: "Remplissez le formulaire ci-dessous pour rejoindre l'association. L'adhésion est de 15 € et donne droit à un reçu fiscal.",
+    en: "Fill out the form below to join the association. Membership is €15 and includes a tax receipt.",
+  },
+  membership_page_title: {
+    fr: "Devenir membre de MO5",
+    en: "Become a MO5 member",
+  },
+  membership_page_desc: {
+    fr: "L'adhésion à l'association MO5.COM est de 15 €. Elle nous permet de financer nos actions de préservation du patrimoine numérique.",
+    en: "Membership to the MO5.COM association is €15. It helps us finance our digital heritage preservation efforts.",
+  },
+  membership_renewal: {
+    fr: "Il s'agit d'un renouvellement d'adhésion",
+    en: "This is a membership renewal",
+  },
+  discord_pseudo: {
+    fr: "Pseudo Discord (facultatif)",
+    en: "Discord username (optional)",
+  },
+  membership_submit_error: {
+    fr: "Une erreur est survenue lors de l'envoi de l'adhésion.",
+    en: "An error occurred while submitting the membership.",
+  },
+  thanks_membership_title: {
+    fr: "Bienvenue chez MO5 !",
+    en: "Welcome to MO5!",
+  },
+  thanks_membership_contact: {
+    fr: "Votre adhésion a bien été enregistrée. Vous recevrez prochainement un email avec toutes les informations pour rejoindre notre Discord.",
+    en: "Your membership has been registered. You will shortly receive an email with all the information to join our Discord.",
+  },
 }
