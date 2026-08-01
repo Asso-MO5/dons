@@ -11,8 +11,7 @@ import { submitMoney } from "../scripts/submit-money"
 import { translate } from "../scripts/translate"
 
 export default () =>
-  createPage(
-    content,
+  createPage(content, {
     getLang,
     saveLang,
     translate,
@@ -22,5 +21,5 @@ export default () =>
     submitMoney,
     loadMoneyModal,
     loadMembershipModal,
-    getBano
-  )
+    getBano,
+  })
