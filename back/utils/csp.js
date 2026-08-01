@@ -1,13 +1,22 @@
 /**
  * Builds the Content-Security-Policy header value.
  *
- * Production policy is intentionally strict: only the same origin and the
- * domains required by PayPal (SDK + iframe) are allowed. Styles rely on
- * `'unsafe-inline'` because Tailwind v4 and some animation utilities emit
- * inline styles; tightening this is a future ticket.
+ * Production policy is intentionally permissive on `script-src` because:
+ * - `_hyperscript` evaluates event handler expressions via `new Function`,
+ *   which requires `'unsafe-eval'`;
+ * - the PayPal JS SDK injects a bootstrap script inline on the page, which
+ *   requires `'unsafe-inline'` (its hash changes between SDK versions, so
+ *   a per-version hash list is not maintainable).
  *
- * Development policy relaxes `script-src` and `connect-src` so that Vite
- * HMR can run (eval-based transforms + WebSocket).
+ * Tightening this further would require either:
+ *   - switching `_hyperscript` off in favour of a framework that does not
+ *     rely on runtime evaluation, or
+ *   - adopting per-request nonces and rebuilding the PayPal integration
+ *     around them.
+ * Both are tracked as separate tickets.
+ *
+ * Development policy additionally relaxes `script-src` and `connect-src`
+ * so that Vite HMR can run (eval-based transforms + WebSocket).
  *
  * @param {Object} options
  * @param {string} options.env - "production" | "development" | anything else
@@ -16,23 +25,31 @@
 function buildCsp({ env = "production" } = {}) {
   const isDev = env !== "production"
 
+  const paypalOrigins = ["https://*.paypal.com", "https://*.paypalobjects.com"]
+
   const directives = {
     "default-src": ["'self'"],
     "script-src": [
       "'self'",
-      "https://www.paypal.com",
-      "https://www.paypalobjects.com",
-      ...(isDev ? ["'unsafe-eval'"] : []),
+      "'unsafe-inline'",
+      "'unsafe-eval'",
+      ...paypalOrigins,
+      ...(isDev ? ["ws://localhost:*", "http://localhost:*"] : []),
     ],
     "style-src": ["'self'", "'unsafe-inline'"],
-    "img-src": ["'self'", "data:", "https://www.paypal.com"],
+    "img-src": [
+      "'self'",
+      "data:",
+      "https://www.paypal.com",
+      "https://www.paypalobjects.com",
+    ],
     "font-src": ["'self'", "data:"],
     "connect-src": [
       "'self'",
-      "https://www.paypal.com",
+      ...paypalOrigins,
       ...(isDev ? ["ws://localhost:*", "http://localhost:*"] : []),
     ],
-    "frame-src": ["https://www.paypal.com"],
+    "frame-src": paypalOrigins,
     "frame-ancestors": ["'none'"],
     "object-src": ["'none'"],
     "base-uri": ["'self'"],

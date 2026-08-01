@@ -28,28 +28,26 @@ test("CSP prod: default-src, frame-ancestors, object-src, base-uri", () => {
 
 test("CSP prod: PayPal is allowed in script-src, frame-src, connect-src, img-src", () => {
   const csp = buildCsp({ env: "production" })
-  assert.ok(hasSource(csp, "script-src", "https://www.paypal.com"))
-  assert.ok(hasSource(csp, "script-src", "https://www.paypalobjects.com"))
-  assert.ok(hasSource(csp, "frame-src", "https://www.paypal.com"))
-  assert.ok(hasSource(csp, "connect-src", "https://www.paypal.com"))
+  assert.ok(hasSource(csp, "script-src", "https://*.paypal.com"))
+  assert.ok(hasSource(csp, "script-src", "https://*.paypalobjects.com"))
+  assert.ok(hasSource(csp, "frame-src", "https://*.paypal.com"))
+  assert.ok(hasSource(csp, "frame-src", "https://*.paypalobjects.com"))
+  assert.ok(hasSource(csp, "connect-src", "https://*.paypal.com"))
+  assert.ok(hasSource(csp, "connect-src", "https://*.paypalobjects.com"))
   assert.ok(hasSource(csp, "img-src", "https://www.paypal.com"))
+  assert.ok(hasSource(csp, "img-src", "https://www.paypalobjects.com"))
 })
 
-test("CSP prod: script-src does not contain unsafe-inline or unsafe-eval", () => {
+test("CSP prod: script-src allows unsafe-eval and unsafe-inline for hyperscript and PayPal SDK", () => {
   const csp = buildCsp({ env: "production" })
-  assert.equal(hasSource(csp, "script-src", "'unsafe-inline'"), false)
-  assert.equal(hasSource(csp, "script-src", "'unsafe-eval'"), false)
+  assert.ok(hasSource(csp, "script-src", "'unsafe-eval'"))
+  assert.ok(hasSource(csp, "script-src", "'unsafe-inline'"))
 })
 
-test("CSP dev: allows unsafe-eval and localhost WebSocket connect", () => {
+test("CSP dev: still allows PayPal domains and localhost", () => {
   const csp = buildCsp({ env: "development" })
-  assert.ok(hasSource(csp, "script-src", "'unsafe-eval'"))
+  assert.ok(hasSource(csp, "script-src", "https://*.paypal.com"))
+  assert.ok(hasSource(csp, "frame-src", "https://*.paypal.com"))
   assert.ok(hasSource(csp, "connect-src", "ws://localhost:*"))
   assert.ok(hasSource(csp, "connect-src", "http://localhost:*"))
-})
-
-test("CSP dev: still allows PayPal domains", () => {
-  const csp = buildCsp({ env: "development" })
-  assert.ok(hasSource(csp, "script-src", "https://www.paypal.com"))
-  assert.ok(hasSource(csp, "frame-src", "https://www.paypal.com"))
 })
