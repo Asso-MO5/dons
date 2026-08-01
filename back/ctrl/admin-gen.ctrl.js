@@ -1,7 +1,7 @@
 const { DONATION_TYPE } = require("../utils/constants")
 const { getUserByEmail } = require("../services/user.service")
 const { generateCerfa } = require("../utils/generateCerfa")
-const { v4: uuidv4 } = require("uuid")
+const { randomUUID: uuidv4 } = require("node:crypto")
 
 module.exports = async (req, h) => {
   if (!req.payload) return h.response("no payload").code(400)

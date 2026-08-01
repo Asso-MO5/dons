@@ -1,7 +1,7 @@
 const Joi = require("joi")
 const path = require("path")
 const fs = require("fs")
-const { v4: uuidv4 } = require("uuid")
+const { randomUUID: uuidv4 } = require("node:crypto")
 const { transporter } = require("../services/mail.service")
 const { FROM, DONATION_TYPE } = require("../utils/constants")
 const { saveUser, getUserByEmail } = require("../services/user.service")

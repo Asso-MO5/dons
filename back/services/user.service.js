@@ -1,5 +1,5 @@
 const { knex } = require("./db.service.js")
-const { v4: uuidv4 } = require("uuid")
+const { randomUUID: uuidv4 } = require("node:crypto")
 
 const tableName = "users"
 
