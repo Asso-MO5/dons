@@ -1,8 +1,9 @@
 import { createPage } from "../../libs/createPage"
 import { injectTemplate } from "../../libs/injectTemplate"
-import content from "../partials/home.html?raw"
+import content from "../partials/gear.html?raw"
 import { getLang, saveLang } from "../scripts/get-lang"
-import { injectFaq } from "../scripts/injectFaq"
+import { getBano } from "../scripts/getBano"
+import { submitGear } from "../scripts/submit-gear"
 import { translate } from "../scripts/translate"
 
 export default () =>
@@ -11,5 +12,6 @@ export default () =>
     saveLang,
     translate,
     injectTemplate,
-    injectFaq,
+    submitGear,
+    getBano,
   })

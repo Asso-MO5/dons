@@ -23,7 +23,7 @@ Fonctionnalité: Mapping des helpers front exposé à _hyperscript
   Scénario: Aucune erreur _hyperscript au chargement de la home
     Quand on charge la page d'accueil en mode production
     Alors aucune erreur `app.helpers.injectTemplate is null` n'apparaît
-    Et la modale don matériel s'ouvre depuis le bouton « Je fais un don »
-    Et la modale don financier s'ouvre depuis le bouton « Je fais un don »
-    Et la modale adhésion s'ouvre depuis le bouton « J'adhère »
+    Et le bouton « Je fais un don » matériel mène vers la page dédiée
+    Et le bouton « Je fais un don » financier mène vers la page dédiée
+    Et le bouton « J'adhère » mène vers la page d'adhésion
     Et le bandeau d'en-tête est inséré en haut de `#page`
