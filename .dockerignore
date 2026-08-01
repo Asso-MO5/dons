@@ -1,0 +1,40 @@
+# deps
+node_modules
+front/node_modules
+**/node_modules
+
+# artefacts
+dist
+front/dist
+
+# Secrets et envs
+.env
+.env.*
+!.env.example
+
+# data runtime (seront écrasés par volumes)
+back/files/*
+back/uploads/*
+!back/files/.gitkeep
+!back/uploads/.gitkeep
+
+# VCS / IDE / OS
+.git
+.gitignore
+.gitattributes
+.github
+.vscode
+.idea
+.DS_Store
+*.log
+npm-debug.log*
+
+# docs / tests (pas nécessaires au runtime)
+docs
+features
+README.md
+*.md
+!back/data/**/*.md
+
+# CapRover (servira aux déploiements, pas à l'image)
+captain-definition

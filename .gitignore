@@ -81,6 +81,7 @@ web_modules/
 .env.production
 .env.local
 .env.*
+!.env.example
 temp
 .htaccess
 logs.*
@@ -97,9 +98,11 @@ out
 #data
 back/files/*
 back/uploads/*
+!back/files/.gitkeep
+!back/uploads/.gitkeep
 
 
-## dist 
+## dist
 dist/
 front/dist/
 
