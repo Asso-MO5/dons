@@ -2,6 +2,7 @@ module.exports = [
   //BACK
   require("./gear-submit.route"),
   require("./money-submit.route"),
+  require("./membership-submit.route"),
   ...require("./cerfa.route"),
   require("./bano.route"),
 

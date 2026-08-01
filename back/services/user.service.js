@@ -15,6 +15,7 @@ async function saveUser(user) {
       postal_code: user.postal_code,
       city: user.city,
       phone: user.phone,
+      discord_pseudo: user.discord_pseudo || null,
     })
     return id
   } catch (err) {
@@ -41,8 +42,21 @@ async function getUserByEmail(email) {
   }
 }
 
+async function updateUser(id, patch) {
+  try {
+    await knex(tableName)
+      .where({ id })
+      .update({ ...patch, updated_at: new Date() })
+    return id
+  } catch (err) {
+    console.error("Erreur lors de la mise à jour de l’utilisateur:", err)
+    throw err
+  }
+}
+
 module.exports = {
   saveUser,
   getUserById,
   getUserByEmail,
+  updateUser,
 }

@@ -1,5 +1,7 @@
 const { createCanvas, loadImage } = require("canvas")
-const imgToPDF = require("image-to-pdf")
+const imgToPDFModule = require("image-to-pdf")
+const imgToPDF = imgToPDFModule.default || imgToPDFModule
+const imgToPDFSizes = imgToPDFModule.sizes
 const fs = require("fs")
 const path = require("path")
 const { mountToLetter } = require("../utils/mount-to-letter")
@@ -121,7 +123,7 @@ async function generateCerfa({
   const pdfPath = path.join(__dirname + "/../files", fileName)
 
   await new Promise((resolve, reject) => {
-    imgToPDF(pages, imgToPDF.sizes.A4)
+    imgToPDF(pages, imgToPDFSizes.A4)
       .pipe(fs.createWriteStream(pdfPath))
       .on("finish", resolve)
       .on("error", reject)

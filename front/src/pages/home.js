@@ -1,14 +1,14 @@
-import content from "../partials/home.html?raw"
-
 import { createPage } from "../../libs/createPage"
-import { getLang, saveLang } from "../scripts/get-lang"
-import { translate } from "../scripts/translate"
 import { injectTemplate } from "../../libs/injectTemplate"
-import { submitGear } from "../scripts/submit-gear"
-import { injectFaq } from "../scripts/injectFaq"
-import { submitMoney } from "../scripts/submit-money"
-import { loadMoneyModal } from "../scripts/load-money-modal"
+import content from "../partials/home.html?raw"
+import { getLang, saveLang } from "../scripts/get-lang"
 import { getBano } from "../scripts/getBano"
+import { injectFaq } from "../scripts/injectFaq"
+import { loadMembershipModal } from "../scripts/load-membership-modal"
+import { loadMoneyModal } from "../scripts/load-money-modal"
+import { submitGear } from "../scripts/submit-gear"
+import { submitMoney } from "../scripts/submit-money"
+import { translate } from "../scripts/translate"
 
 export default () =>
   createPage(
@@ -21,5 +21,6 @@ export default () =>
     injectFaq,
     submitMoney,
     loadMoneyModal,
+    loadMembershipModal,
     getBano
   )
