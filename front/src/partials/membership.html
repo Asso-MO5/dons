@@ -58,6 +58,9 @@
           </fieldset>
 
           <div id="membership_paypal-buttons" class="flex col-span-2 mt-4"></div>
+          <div class="col-span-2 flex justify-center">
+            <a href="/" class="btn" data-trans="back_to_donation"></a>
+          </div>
         </form>
       </section>
     </div>
@@ -68,7 +71,7 @@
 <span _="
   on load
   call app.helpers.injectTemplate('header') then put result at the start of #page
-  call app.helpers.loadMembershipModal()
+  call app.helpers.loadMembershipDonation()
   call app.helpers.translate()
   " class="fixed">
 </span>

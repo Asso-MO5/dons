@@ -50,7 +50,7 @@ moi ».
 1. En production, le bundle minifié expose `app.helpers.injectTemplate`,
    `app.helpers.translate`, `app.helpers.getLang`, `app.helpers.saveLang`,
    `app.helpers.injectFaq`, `app.helpers.submitGear`, `app.helpers.submitMoney`,
-   `app.helpers.loadMoneyModal`, `app.helpers.loadMembershipModal`,
+   `app.helpers.loadMoneyDonation`, `app.helpers.loadMembershipDonation`,
    `app.helpers.getBano`, `app.helpers.getDownloadLink`,
    `app.helpers.submitAdminGen` comme des fonctions définies.
 2. Aucune référence à `[fn.name]` ou `[e.name]` dans le bundle

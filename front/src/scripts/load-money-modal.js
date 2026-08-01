@@ -3,8 +3,7 @@ import { toast } from "./toast"
 import { submitMoney } from "./submit-money"
 import { cleanEmail } from "../utils/cleanEmail"
 
-export async function loadMoneyModal() {
-  const modal = document.querySelector("#modal_money")
+export async function loadMoneyDonation() {
   // Listen to the submit event of the form
   document.querySelectorAll(`input[name='amount']`).forEach((input) => {
     input.addEventListener(
@@ -38,7 +37,6 @@ export async function loadMoneyModal() {
         const amountStr = customAmount || amountRange
         const amount = Number(amountStr)
         if (!amount || amount === 0) {
-          modal.close()
           return toast("Veuillez choisir un montant", "error")
         }
         return actions.order.create({
@@ -91,7 +89,6 @@ export async function loadMoneyModal() {
           linkEl.target = "_blank"
           linkEl.rel = "noopener noreferrer"
           document.body.appendChild(linkEl)
-          modal.close()
 
           // ouverture du lien
           linkEl.click()
@@ -104,7 +101,6 @@ export async function loadMoneyModal() {
         }
       },
       onError: (err) => {
-        modal.close()
         return toast(err, "error")
       },
     })

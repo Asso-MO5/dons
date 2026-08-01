@@ -3,7 +3,7 @@ import { injectTemplate } from "../../libs/injectTemplate"
 import content from "../partials/membership.html?raw"
 import { getLang, saveLang } from "../scripts/get-lang"
 import { getBano } from "../scripts/getBano"
-import { loadMembershipModal } from "../scripts/load-membership-modal"
+import { loadMembershipDonation } from "../scripts/load-membership-modal"
 import { translate } from "../scripts/translate"
 
 export default () =>
@@ -12,6 +12,6 @@ export default () =>
     saveLang,
     translate,
     injectTemplate,
-    loadMembershipModal,
+    loadMembershipDonation,
     getBano,
   })

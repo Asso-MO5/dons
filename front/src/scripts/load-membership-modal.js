@@ -3,8 +3,7 @@ import { cleanEmail } from "../utils/cleanEmail"
 import { submitMembership } from "./submit-membership"
 import { toast } from "./toast"
 
-export async function loadMembershipModal() {
-  const modal = document.querySelector("#modal_membership")
+export async function loadMembershipDonation() {
 
   const paypal = await loadScript({
     "client-id": import.meta.env.VITE_PAYPAL_API_KEY,
@@ -29,7 +28,6 @@ export async function loadMembershipModal() {
         const required = ["name", "lastname", "email", "address", "postal_code", "city"]
         for (const field of required) {
           if (!formData.get(field)) {
-            modal?.close()
             return toast("Veuillez remplir tous les champs obligatoires", "error")
           }
         }
@@ -84,7 +82,6 @@ export async function loadMembershipModal() {
           linkEl.target = "_blank"
           linkEl.rel = "noopener noreferrer"
           document.body.appendChild(linkEl)
-          modal?.close()
           linkEl.click()
           document.body.removeChild(linkEl)
           window.location.replace("/thanks-membership/" + `${fileId}/${cleanEmail(user.email)}`)
@@ -93,7 +90,6 @@ export async function loadMembershipModal() {
         }
       },
       onError: (err) => {
-        modal?.close()
         return toast(err, "error")
       },
     })
